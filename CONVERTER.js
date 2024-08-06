@@ -168,6 +168,32 @@ function bintoDec(bin){
     return total;
 }
 
+function DecToBin(dec){
+    let bin = "";
+    let temp = parse_int(dec);
+
+    let num = 1;
+
+    while(num < temp){
+        num = num * 2;
+    }
+    
+
+    while(num >= 1){
+        if(temp >= num){
+            temp = temp - num;
+            num = num / 2;
+            bin = bin + "1";
+        }
+        else{
+            num = num / 2;
+            bin = bin + "0";
+        }
+    }
+
+    return bin;
+}
+
 submenu.addItem("TXT -> HEX", 0);
 submenu.addItem("TXT -> BIN", 1);
 submenu.addItem("TXT -> DEC", 2);
@@ -178,7 +204,7 @@ submenu.addItem("BIN -> HEX", 6);
 submenu.addItem("BIN -> TXT", 7);
 submenu.addItem("BIN -> DEC", 8);
 submenu.addItem("DEN -> HEX", 9);
-submenu.addItem("DEN -> BIN", 11);
+submenu.addItem("DEN -> BIN", 10);
 
 
 submenu.setHeader("Select an option:");
@@ -249,7 +275,7 @@ else if(choice === 3 || choice === 4 || choice === 5){
     inpt = result;
     allow = true
 }
-else if(choice === 6 || choice === 7 || choice === 8 || choice === 9 || choice === 10){
+else if(choice === 6 || choice === 7 || choice === 8){
     keyboard.setHeader(title[choice]);
 
     inpt = keyboard.text(100, "", true);
@@ -265,6 +291,12 @@ else if(choice === 6 || choice === 7 || choice === 8 || choice === 9 || choice =
             allow = false;
         }
     }
+}
+else if(choice === 9 || choice === 10){
+    keyboard.setHeader(title[choice]);
+
+    inpt = keyboard.text(100, "", true);
+    allow = true;   
 }
 
 if(allow === true){
@@ -324,6 +356,12 @@ if(allow === true){
         }
         else if(choice === 8){
             FINISH = bintoDec(inpt);
+        }
+        else if(choice === 9){
+            FINISH = decToHex(parse_int(inpt));
+        }
+        else if(choice === 10){
+            FINISH = DecToBin(inpt);    
         }
         else{
             print("NOT DONE YET");
