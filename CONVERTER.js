@@ -7,7 +7,7 @@ let inpt = "";
 let FINISH = "";
 
 let allow = false;
-
+//dakdgagsdkjald
 
 function decToHex(decimal){
     let hex = "";
