@@ -5,10 +5,7 @@ let dialog = require("dialog");
 
 let inpt = "";
 let FINISH = "";
-//CHANGE
 let allow = false;
-//dakdgagsdkjald
-//TEST FOR CUSTOM SCRIPT
 
 function decToHex(decimal){
     let hex = "";
